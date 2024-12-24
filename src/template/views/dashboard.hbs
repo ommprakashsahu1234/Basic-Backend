@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+
+    <style>
+    /* Base styling for the table */
+    .details {
+        margin: 20px auto;
+        width: 60%;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border: 2px solid greenyellow;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        min-height: max-content;
+        max-width: 100vw;
+    }
+
+    th {
+        background-color: #1885de;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #d0f0c0;
+    }
+
+    td:first-child {
+        font-weight: bold;
+        color: #1885de;
+    }
+
+    .details table {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    button {
+        background-color: #1885de;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #1065a3;
+        transform: scale(1.05);
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    /* Profile Image style */
+    .prfimg {
+        max-width: 100px;
+        min-width: none;
+    }
+
+    /* Mobile responsiveness */
+    @media only screen and (max-width: 600px) {
+        .details {
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        table {
+            font-size: 14px;
+        }
+
+        td, th {
+            padding: 8px;
+            min-width: 80px;
+        }
+
+        /* Flexbox for mobile layout */
+        .mobile-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .mobile-row .row {
+            width: 50%;
+            display: inline-block;
+        }
+
+        .mobile-row img {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Only show profile image next to name */
+        .profile-img-box {
+            display: inline-block;
+        }
+
+        .details .profile-img-box {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Hide image for other rows except first */
+        .profile-img-box img {
+            display: block;
+        }
+
+        .details tr {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .details td:first-child {
+            font-weight: bold;
+            color: #1885de;
+        }
+    }
+
+    /* Laptop responsiveness */
+    @media only screen and (max-width: 1024px) {
+        .details {
+            width: 80%;
+            margin: 15px auto;
+        }
+
+        table {
+            font-size: 16px;
+        }
+
+        td, th {
+            padding: 10px;
+        }
+
+        .profile-img-box img {
+            width: 70px;
+            height: 90px;
+        }
+    }
+    </style>
+
+</head>
+
+<body>
+    {{>header}}
+    <div class="details" id="dashboardprint">
+        <table>
+            <tr>
+                <td>NAME</td>
+                <td>{{nm}}</td>
+                <td rowspan="4">
+                    <div class="profile-img-box" align="center">
+                        <img src="{{pri}}" alt="Profile Image" class="prfimg">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>USERNAME</td>
+                <td>{{un}}</td>
+            </tr>
+            <tr>
+                <td>MOBILE NO</td>
+                <td>{{mn}}</td>
+            </tr>
+            <tr>
+                <td>MAIL ID</td>
+                <td>{{mi}}</td>
+            </tr>
+            <tr>
+                <td>ADDRESS</td>
+                <td>{{ad}}</td>
+            </tr>
+            <tr>
+                <td>Unique ID (Use for BackEnd Support)</td>
+                <td><button onclick="viewUI('{{ui}}')">View</button></td>
+            </tr>
+        </table>
+    </div>
+    {{>footer}}
+
+    <script>
+        // Pass the value of ui from the template to the JavaScript function
+        function viewUI(uniqueID) {
+            alert(uniqueID); // Now alert will work and show the UI ID
+        }
+
+    </script>
+</body>
+
+</html>

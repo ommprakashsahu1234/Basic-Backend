@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Data</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+
+</head>
+
+<body>
+    {{>header}}
+    <div class="title-text" align="center">
+        <h1>DELETE DATA</h1>
+    </div>
+    <form action="/delete" method="POST" class="delete-form">
+        <div class="form-container">
+            
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your Password : ">
+            
+            <label for="captcha">Enter Captcha:<br>
+                <img src="../public/images/captcha2.png" alt="Pass Username" class="captcha">
+            </label>
+            <input type="text" id="captcha" name="captcha" required placeholder="Enter Captcha : ">
+            
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </div>
+    </form>
+    {{>footer}}
+</body>
+
+</html>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 10px 0;
+        color: white;
+    }
+
+    .form-container {
+        background-color: #03083de0;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 400px;
+        border: 4px solid greenyellow;
+    }
+
+    label {
+        display: block;
+        font-size: 14px;
+        margin: 10px 0 5px;
+        color: #ffffff;
+    }
+
+    label:hover {
+        background-color: greenyellow;
+        color: black;
+        max-width: fit-content;
+        padding: 0 2px;
+        border-radius: 3px;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    button.submit-btn,
+    button.view-requests {
+        width: 100%;
+        padding: 12px;
+        background-color: #06022d;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button.submit-btn:hover,
+    button.view-requests:hover {
+        background-color: #1885de;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #1885de;
+        outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #888;
+    }
+
+    .uid-info {
+        border-radius: 50%;
+        color: white;
+        background-color: #06022d;
+        border: none;
+        padding: 5px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .form-container {
+            padding: 15px;
+            width: 90%;
+            max-width: 350px;
+        }
+
+        button.submit-btn,
+        button.view-requests {
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 13px;
+        }
+
+        .uid-info {
+            padding: 3px 6px;
+            font-size: 10px;
+        }
+
+        img.captcha {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+</style>
+
+<script>
+    function uidinfo() {
+        alert("To get Unique ID, go to Dashboard > Unique ID > View Button");
+    }
+</script>

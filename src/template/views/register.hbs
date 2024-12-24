@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+
+</head>
+<body>
+    {{>UnlogHead}}
+    <div class="title-text" align="center">
+      <h1>
+        REGISTRATION FORM
+      </h1>
+    </div>
+    <form action="/register" method="POST" class="registration-form" enctype="multipart/form-data">
+  <div class="form-container">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your full name" required>
+
+    <label for="profileimg">Upload Profile Picture</label>
+    <input type="file" id="profileimg" name="profileimg" required placeholder="Upload Profile Pic" accept="png, jpg, jpeg" required>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required placeholder="Enter a unique username" required>
+    
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email address" required>
+    
+    <label for="mobno">Mobile No:</label>
+    <input type="number" id="mobno" name="mobno" required placeholder="Enter your Mobile number " required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required placeholder="Enter your password" required>
+
+    <label for="confirmpass">Confirm Password:</label>
+    <input type="password" id="confirmpass" name="confirmpass" required placeholder="Confirm your password" required>
+
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required placeholder="Enter your address" required></textarea>
+
+    <button type="submit" class="submit-btn">Register</button>
+  </div>
+</form>
+
+    {{>footer}}
+</body>
+<style>
+    /* Form container styling */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.form-container {
+  background-color: #03083de0;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Form will be centered and won't stretch too wide */
+  border: 4px solid greenyellow;
+}
+
+/* Label styling */
+label {
+  display: block;
+  font-size: 14px;
+  margin: 10px 0 5px;
+  color: #ffffff;
+
+}
+
+label:hover {
+  background-color: greenyellow;
+  color: black;
+  max-width: fit-content;
+  padding: 0 2px; /* Adds 2px padding on both sides */
+  border-radius: 3px;
+}
+
+/* Input and Textarea styling */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Button styling */
+button.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #06022d;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.submit-btn:hover {
+  background-color: #1885de;
+}
+
+/* Focus styling for inputs and textarea */
+input:focus, textarea:focus {
+  border-color: #1885de;
+  outline: none;
+}
+
+/* Placeholder styling */
+input::placeholder, textarea::placeholder {
+  color: #888;
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+    width: 90%;
+    max-width: 350px; /* Ensure form doesn't stretch too wide on smaller devices */
+  }
+
+  button.submit-btn {
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+}
+
+</style>
+</html>

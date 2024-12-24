@@ -1,0 +1,106 @@
+<header>
+  <nav>
+    <div class="menu-toggle" id="menu-toggle">
+      &#9776; <!-- Hamburger icon -->
+    </div>
+    <div id="student-database-text" class="mobile-only">STUDENT DATABASE</div>
+    <ul id="nav-list">
+      <li><a href="/login">Login</a></li>
+      <li><a href="/register">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: #06022d;
+    padding: 10px;
+    position: relative;
+    color: white;
+  }
+
+  nav .menu-toggle {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hidden by default for larger screens */
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Horizontal menu on larger screens */
+  }
+
+  nav ul li {
+    display: inline;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  nav ul li a:hover {
+    background-color: #1885de;
+    border-radius: 25px;
+  }
+  .mobile-only{
+    text-align-last: center;
+  }
+
+  /* Hide the "STUDENT DATABASE" text and the menu on mobile by default */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+      display: none; /* Hidden by default */
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background-color: #06022d;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    nav ul li {
+      margin-bottom: 10px;
+    }
+
+    nav .menu-toggle {
+      display: block; /* Show the hamburger icon on mobile */
+    }
+
+    /* Hide "STUDENT DATABASE" text when menu is opened */
+    nav ul.show + #student-database-text {
+      display: none; /* Hide when menu is open */
+    }
+
+    /* Show the "STUDENT DATABASE" text when the menu is not opened */
+    #student-database-text {
+      display: block;
+      color: white;
+      font-size: 18px;
+      position: absolute;
+      top: 15px; /* Adjust to position the text within the nav */
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    nav ul.show {
+      display: flex; /* Show the menu when the hamburger is clicked */
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navList = document.getElementById('nav-list');
+
+  menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('show'); // Toggle the "show" class on the menu
+  });
+</script>

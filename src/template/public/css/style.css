@@ -1,0 +1,9 @@
+header,
+footer {
+  color: rgb(255, 255, 255);
+}
+body {
+  background: linear-gradient(to bottom, #ffffff, #515163);
+  background-attachment: fixed;
+  background-size: cover;
+}
